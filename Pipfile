@@ -14,6 +14,7 @@ transformers = "*"
 datasets = "*"
 wordcloud = "*"
 pillow = "*"
+nltk = "*"
 
 [dev-packages]
 jupyter = "*"
