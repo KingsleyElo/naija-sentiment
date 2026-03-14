@@ -12,6 +12,8 @@ scikit-learn = "*"
 tensorflow = "*"
 transformers = "*"
 datasets = "*"
+wordcloud = "*"
+pillow = "*"
 
 [dev-packages]
 jupyter = "*"
