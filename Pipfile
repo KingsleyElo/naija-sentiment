@@ -4,21 +4,22 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-numpy = "*"
-pandas = "*"
-matplotlib = "*"
 seaborn = "*"
-scikit-learn = "*"
-tensorflow = "*"
-transformers = "*"
 datasets = "*"
 wordcloud = "*"
 pillow = "*"
 nltk = "*"
+torch = "*"
+tensorflow = "*"
+transformers = "*"
+numpy = "*"
+pandas = "*"
+matplotlib = "*"
+scikit-learn = "*"
 
 [dev-packages]
-jupyter = "*"
 ipykernel = "*"
+jupyter = "*"
 
 [requires]
 python_version = "3.10"
