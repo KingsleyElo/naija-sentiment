@@ -5,6 +5,17 @@ import pickle
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+def dataset_preprocessing_afro_xlmr(text):
+    text = text.lower()
+
+    # remove http/https URLs
+    text = re.sub(r'http\S+|www\S+', '', text)
+
+    # remove extra whitespace
+    text = re.sub(r'\s+', ' ', text).strip()
+
+    return text
+
 
 def dataset_preprocessing(text):
     text = text.lower()
