@@ -1,9 +1,16 @@
 # NaijaSenti — Nigerian Twitter Sentiment Analysis
 
-Multilingual sentiment analysis across four Nigerian languages: **Hausa, Igbo, 
+Multilingual sentiment classification across four Nigerian languages: **Hausa, Igbo, 
 Nigerian Pidgin, and Yorùbá**. This project fine-tunes and compares four model 
 architectures on the NaijaSenti corpus, from classical ML to a pretrained 
 African language transformer.
+
+## Live Demo
+[Try it on Hugging Face Spaces](https://huggingface.co/spaces/KingsleyElo/naija-sentiment)
+
+> Note: The live demo runs Logistic Regression and LSTM. AfroXLMR (best model, 
+> 0.74 F1) is documented in the results table and available as a trained model 
+> on [Hugging Face](https://huggingface.co/KingsleyElo/naija-sentiment-models).
 
 ---
 
@@ -19,8 +26,6 @@ African language transformer.
 > **Note on Pidgin neutral:** The neutral class has only 72 training samples in 
 > Pidgin, causing consistent underperformance across all models. This is a known 
 > data limitation in the NaijaSenti corpus, not a modelling failure.
-
----
 
 ---
 
