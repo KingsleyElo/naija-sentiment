@@ -55,13 +55,12 @@ lowercasing, URL removal, punctuation, emoji, stopword removal, and lemmatizatio
 
 ### SimpleRNN
 Keras sequential RNN with embedding layer. Minimal preprocessing (URLs and 
-emojis only) to preserve sequence structure. Matched the LogReg baseline at 
-0.69 overall but underperformed on Pidgin — LSTM's gated memory was necessary 
-for consistent gains across all languages.
+emojis only) to preserve sequence structure. Matched the LogReg baseline at 0.69 overall but underperformed on Pidgin, LSTM's gated memory delivered gains on Hausa, Igbo, and Yoruba.
 
 ### LSTM (V2)
-LSTM with Dropout, L2 regularisation, and EarlyStopping. 
-Tokenizer shared with SimpleRNN. Outperformed LogReg baseline on all languages.
+Two stacked LSTM layers with class weighting and EarlyStopping. 
+Tokenizer shared with SimpleRNN. Beat LogReg on 3 out of 4 languages — 
+Hausa, Igbo, and Yoruba. LogReg leads marginally on Pidgin (0.44 vs 0.43).
 
 ### AfroXLMR
 Fine-tuned [Davlan/afro-xlmr-base](https://huggingface.co/Davlan/afro-xlmr-base) 
