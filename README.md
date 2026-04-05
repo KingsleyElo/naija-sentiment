@@ -55,7 +55,9 @@ lowercasing, URL removal, punctuation, emoji, stopword removal, and lemmatizatio
 
 ### SimpleRNN
 Keras sequential RNN with embedding layer. Minimal preprocessing (URLs and 
-emojis only) to preserve sequence structure. Matched the LogReg baseline at 0.69 overall but underperformed on Pidgin, LSTM's gated memory delivered gains on Hausa, Igbo, and Yoruba.
+emojis only) to preserve sequence structure. Matched the LogReg baseline at 
+0.69 overall — underperformed on Pidgin due to the severe class imbalance 
+in the neutral class.
 
 ### LSTM (V2)
 Two stacked LSTM layers with class weighting and EarlyStopping. 
@@ -77,8 +79,8 @@ gradient clipping, and class-weighted CrossEntropyLoss. Best overall performance
   over the Keras tokenizer used in earlier models
 - Pidgin neutral underperformance (F1: 0.07 with AfroXLMR) is a data problem: 
   72 training samples cannot support any reliable classifier
-- SimpleRNN matched LogReg overall (0.69) but underperformed on Pidgin,
-  LSTM's gated memory is necessary for consistent gains across all languages
+- SimpleRNN matched LogReg overall (0.69) — gated architectures (LSTM) delivered 
+  consistent gains on Hausa, Igbo, and Yoruba but not Pidgin
 - Random baseline for a 3-class problem = 0.33. AfroXLMR achieves 2.2× that
 
 ---
