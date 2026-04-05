@@ -19,7 +19,7 @@ African language transformer.
 | Model               | Overall Macro F1 | Hausa | Igbo | Pidgin | Yoruba |
 |---------------------|------------------|-------|------|--------|--------|
 | Logistic Regression | 0.69             | 0.71  | 0.73 | 0.44   | 0.68   |
-| SimpleRNN           | 0.68             | 0.70  | 0.72 | 0.43   | 0.66   |
+| SimpleRNN           | 0.69             | 0.72  | 0.74 | 0.38   | 0.69   |
 | LSTM (V2)           | 0.71             | 0.75  | 0.75 | 0.43   | 0.69   |
 | **AfroXLMR**        | **0.74**         | 0.77  | 0.78 | 0.49   | 0.70   |
 
@@ -55,8 +55,9 @@ lowercasing, URL removal, punctuation, emoji, stopword removal, and lemmatizatio
 
 ### SimpleRNN
 Keras sequential RNN with embedding layer. Minimal preprocessing (URLs and 
-emojis only) to preserve sequence structure. Did not beat the LogReg baseline — 
-mostly due to vanishing gradients on short tweet sequences.
+emojis only) to preserve sequence structure. Matched the LogReg baseline at 
+0.69 overall but underperformed on Pidgin — LSTM's gated memory was necessary 
+for consistent gains across all languages.
 
 ### LSTM (V2)
 LSTM with Dropout, L2 regularisation, and EarlyStopping. 
@@ -77,8 +78,8 @@ gradient clipping, and class-weighted CrossEntropyLoss. Best overall performance
   over the Keras tokenizer used in earlier models
 - Pidgin neutral underperformance (F1: 0.07 with AfroXLMR) is a data problem: 
   72 training samples cannot support any reliable classifier
-- SimpleRNN underperformed LogReg — gated architectures (LSTM) are necessary 
-  for short, noisy social media text
+- SimpleRNN matched LogReg overall (0.69) but underperformed on Pidgin,
+  LSTM's gated memory is necessary for consistent gains across all languages
 - Random baseline for a 3-class problem = 0.33. AfroXLMR achieves 2.2× that
 
 ---
